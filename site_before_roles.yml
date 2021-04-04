@@ -1,0 +1,17 @@
+- hosts: all
+  become: true
+  pre_tasks:
+  
+  - name: update repo cache (rhel)
+    tags: always
+    dnf:
+       update_cache: yes
+    changed_when: false
+    When: ansible_distribution == "rhel"
+
+  - name: update repo cache (Ubuntu)
+    tags: always
+    apt:
+       update_cahe: yes
+    changed_when: false
+    ehan: ansible_distribution == "Ubuntu"

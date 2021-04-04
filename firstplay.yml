@@ -1,0 +1,26 @@
+---
+- hosts: jenkins
+  remote_user: root
+  ignore_errors: yes
+  tasks:
+          - name: Create a user
+            user:
+                    name: olujoke
+                    comment: Olu
+          - name: Create file on target host
+            file:
+                    path: /tmp/ansolu
+                    state: touch
+          - name: Create a directory
+            file:
+                    path: /opt/directory_Olu
+                    state: directory
+          - name: install vim
+            apt:
+                    name: vim
+                    state: present
+          - name: 
+            service:
+                    name: vim
+                    state: started
+
